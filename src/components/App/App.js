@@ -10,12 +10,14 @@ const initialTodos = [
 
 function App() {
   const [todos, setTodos] = useState(() => initialTodos);
+  const todaysDate = new Date().toLocaleDateString();
 
   return (
-    <main className="App">
+    <section className="App">
       <h1>Todo List</h1>
+      <h2>{todaysDate}</h2>
       <TodoList todos={todos} />
-    </main>
+    </section>
   );
 }
 
