@@ -1,0 +1,24 @@
+import { useContext, useState, useRef, useEffect } from 'react';
+import { ThemeContext } from '../../contexts/Theme.context';
+import './ThemeSwitch.css';
+
+function ThemeSwitch() {
+  const { isLightTheme, toggleTheme } = useContext(ThemeContext);  
+  const [isChecked, setIsChecked] = useState(false);
+  const checkboxRef = useRef();
+
+  useEffect(() => {
+    setIsChecked(checkboxRef.current.checked);
+  }, [isLightTheme]);
+
+  const handleThemeToggle = () => toggleTheme();
+
+  return (
+    <label className={`ThemeSwitch ${isChecked ? 'checked' : ''}`}>
+      Toggle theme
+      <input ref={checkboxRef} className="ThemeSwitch__toggle" type="checkbox" onClick={handleThemeToggle} />
+    </label>
+  )
+}
+
+export default ThemeSwitch;
