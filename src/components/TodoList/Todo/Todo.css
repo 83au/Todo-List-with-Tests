@@ -1,12 +1,12 @@
 .Todo {
   position: relative;
-  margin: 2rem 1rem;
+  margin: 0 1rem;
   
   padding: 1.3rem 2rem;
 
-  border-radius: 3rem;
+  /* border-radius: 3rem;
   box-shadow: 2px 2px 6px var(--color-shadow-dark),
-              -2px -2px 6px var(--color-shadow-light);
+              -2px -2px 6px var(--color-shadow-light); */
   
   cursor: pointer;
 
@@ -14,9 +14,13 @@
   font-weight: bold;
 }
 
+.Todo:not(:last-child) {
+  border-bottom: 2px solid #666;
+}
+
 .Todo:hover {
-  box-shadow: inset 2px 2px 6px var(--color-shadow-dark),
-              inset -2px -2px 6px var(--color-shadow-light);
+  /* box-shadow: inset 2px 2px 6px var(--color-shadow-dark),
+              inset -2px -2px 6px var(--color-shadow-light); */
   color: var(--color-primary);
   transition: .3s;
 }
@@ -32,7 +36,7 @@
 }
 
 .Todo.completed {
-  color: rgba(0, 0, 0, .5);
+  color: #666;
   font-weight: lighter;
   text-decoration: line-through;
 }

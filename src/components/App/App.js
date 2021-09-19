@@ -1,5 +1,6 @@
 import ThemeSwitch from '../ThemeSwitch/ThemeSwitch';
 import TodoList from '../TodoList/TodoList';
+import AddTodoForm from '../AddTodoForm/AddTodoForm';
 import './App.css';
 
 function App() {
@@ -9,6 +10,7 @@ function App() {
       <ThemeSwitch />
       <h1>Todo List</h1>
       <h2>{todaysDate}</h2>
+      <AddTodoForm />
       <TodoList />
     </section>
   );

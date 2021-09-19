@@ -5,6 +5,7 @@ import { v4 as uuid } from 'uuid';
 const initialTodos = [
   { task: 'Mow lawn', completed: false, id: uuid() },
   { task: 'Wash car', completed: false, id: uuid() },
+  { task: 'Study', completed: false, id: uuid() }
 ];
 
 
