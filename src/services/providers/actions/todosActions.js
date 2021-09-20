@@ -6,6 +6,6 @@ export const types = {
   UPDATE: 'UPDATE'
 }
 
-export const addTodo = task => ({ type: 'ADD', todo: { task, completed: false, id: uuid() } });
-export const deleteTodo = id => ({ type: 'DELETE', id });
-export const updateTodo = id => ({ type: 'UPDATE', id });
+export const addTodo = task => ({ type: types.ADD, todo: { task, completed: false, id: uuid() } });
+export const deleteTodo = id => ({ type: types.DELETE, id });
+export const updateTodo = id => ({ type: types.UPDATE, id });

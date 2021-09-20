@@ -5,6 +5,8 @@ import './TodoList.css';
 function TodoList() {
   const { todos, deleteTodo, updateTodo } = useTodos();
 
+  console.log('TODOS: ', todos)
+
   const listItems = todos.map(todo => (
     <Todo 
       key={todo.id} 

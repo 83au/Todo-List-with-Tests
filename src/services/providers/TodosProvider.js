@@ -1,7 +1,7 @@
-import { createContext, useContext, useReducer } from 'react';
+import { createContext, useContext } from 'react';
 import { v4 as uuid } from 'uuid';
 import * as actions from './actions/todosActions';
-import todosReducer from './reducers/todosReducer';
+import useLocalStorageTodos from '../../hooks/useLocalStorageTodos';
 
 
 const initialTodos = [
@@ -15,7 +15,7 @@ export const TodosContext = createContext();
 
 
 function TodosProvider({ children }) {
-  const [todos, dispatch] = useReducer(todosReducer, initialTodos);
+  const [todos, dispatch] = useLocalStorageTodos(initialTodos);
 
   const addTodo = task => dispatch(actions.addTodo(task));
 
