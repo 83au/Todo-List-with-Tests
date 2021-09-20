@@ -1,6 +1,7 @@
 import { createContext, useContext, useReducer } from 'react';
 import { v4 as uuid } from 'uuid';
-import todosReducer from './todosReducer';
+import * as actions from './actions/todosActions';
+import todosReducer from './reducers/todosReducer';
 
 
 const initialTodos = [
@@ -16,17 +17,11 @@ export const TodosContext = createContext();
 function TodosProvider({ children }) {
   const [todos, dispatch] = useReducer(todosReducer, initialTodos);
 
-  const addTodo = task => {
-    dispatch({ type: 'ADD', todo: { task, completed: false, id: uuid() }});
-  }
+  const addTodo = task => dispatch(actions.addTodo(task));
 
-  const deleteTodo = id => {
-    dispatch({ type: 'DELETE', id });
-  }
+  const deleteTodo = id => dispatch(actions.deleteTodo(id));
 
-  const updateTodo = id => {
-    dispatch({ type: 'UPDATE', id });
-  }
+  const updateTodo = id => dispatch(actions.updateTodo(id));
 
   const context = {
     todos,

@@ -1,4 +1,4 @@
-import { useTodos } from '../../store/Todos/TodosProvider';
+import { useTodos } from '../../services/providers/TodosProvider';
 import Todo from './Todo/Todo';
 import './TodoList.css';
 

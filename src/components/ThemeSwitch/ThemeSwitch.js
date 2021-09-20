@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
-import { useTheme } from '../../store/Theme/ThemeProvider';
+import { useTheme } from '../../services/providers/ThemeProvider';
 import './ThemeSwitch.css';
 
 function ThemeSwitch() {

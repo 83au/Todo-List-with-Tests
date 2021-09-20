@@ -1,5 +1,5 @@
-import ThemeContextProvider from '../store/Theme/ThemeProvider';
-import TodosContextProvider from '../store/Todos/TodosProvider';
+import ThemeContextProvider from '../services/providers/ThemeProvider';
+import TodosContextProvider from '../services/providers/TodosProvider';
 
 function Services({ children }) {
   return (
