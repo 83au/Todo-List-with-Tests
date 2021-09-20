@@ -1,5 +1,6 @@
-import { createContext, useEffect, useCallback } from 'react';
-import useToggle from '../hooks/useToggle';
+import { createContext, useContext, useEffect, useCallback } from 'react';
+import useToggle from '../../hooks/useToggle';
+
 
 export const ThemeContext = createContext();
 
@@ -33,6 +34,11 @@ function ThemeProvider({ children }) {
       {children}
     </ThemeContext.Provider>
   )
+}
+
+export function useTheme() {
+  const context = useContext(ThemeContext);
+  return context;
 }
 
 export default ThemeProvider;

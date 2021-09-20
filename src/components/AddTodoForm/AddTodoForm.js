@@ -1,13 +1,11 @@
-import React from 'react'
-
-import { useContext, useState } from 'react';
+import { useState } from 'react';
 import { v4 as uuid } from 'uuid';
-import { TodosContext } from '../../contexts/Todos.context';
+import { useTodos } from '../../store/Todos/TodosProvider';
 import './AddTodoForm.css';
 
 function AddTodoForm() {
   const [task, setTask] = useState('');
-  const { dispatch } = useContext(TodosContext);
+  const { dispatch } = useTodos();
 
   const handleChange = event => setTask(event.target.value);
 

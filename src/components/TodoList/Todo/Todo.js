@@ -11,7 +11,7 @@ function Todo({ children, todo: { completed, id }, dispatch }) {
   return (
     <li className={`Todo ${completed ? 'completed' : ''}`} onClick={handleClick}>
       { children }
-      <span className="Todo__close">&times;</span>
+      <button className="Todo__close">&times;</button>
     </li>
   )
 }

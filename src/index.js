@@ -1,16 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import ThemeContextProvider from './contexts/Theme.context';
-import TodosContextProvider from './contexts/Todos.context';
+import Services from './components/Services';
 import App from './components/App/App';
 import './index.css';
 
 ReactDOM.render(
-  <ThemeContextProvider>
-    <TodosContextProvider>
-      <App />
-    </TodosContextProvider>
-  </ThemeContextProvider>,
+  <Services>
+    <App />
+  </Services>,
   document.getElementById('root')
 );
 

@@ -1,9 +1,9 @@
-import { useContext, useState, useRef, useEffect } from 'react';
-import { ThemeContext } from '../../contexts/Theme.context';
+import { useState, useRef, useEffect } from 'react';
+import { useTheme } from '../../store/Theme/ThemeProvider';
 import './ThemeSwitch.css';
 
 function ThemeSwitch() {
-  const { isLightTheme, toggleTheme } = useContext(ThemeContext);  
+  const { isLightTheme, toggleTheme } = useTheme();  
   const [isChecked, setIsChecked] = useState(false);
   const checkboxRef = useRef();
 
