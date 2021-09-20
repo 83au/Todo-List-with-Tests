@@ -16,7 +16,12 @@ function ThemeSwitch() {
   return (
     <label className={`ThemeSwitch ${isChecked ? 'checked' : ''}`}>
       Toggle theme
-      <input ref={checkboxRef} className="ThemeSwitch__toggle" type="checkbox" onClick={handleThemeToggle} />
+      <input 
+        ref={checkboxRef} 
+        className="ThemeSwitch__toggle" 
+        type="checkbox" 
+        onClick={handleThemeToggle} 
+      />
     </label>
   )
 }

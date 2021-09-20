@@ -16,8 +16,27 @@ export const TodosContext = createContext();
 function TodosProvider({ children }) {
   const [todos, dispatch] = useReducer(todosReducer, initialTodos);
 
+  const addTodo = task => {
+    dispatch({ type: 'ADD', todo: { task, completed: false, id: uuid() }});
+  }
+
+  const deleteTodo = id => {
+    dispatch({ type: 'DELETE', id });
+  }
+
+  const updateTodo = id => {
+    dispatch({ type: 'UPDATE', id });
+  }
+
+  const context = {
+    todos,
+    addTodo,
+    deleteTodo,
+    updateTodo
+  }
+
   return (
-    <TodosContext.Provider value={{ todos, dispatch }}>
+    <TodosContext.Provider value={context}>
       {children}
     </TodosContext.Provider>
   )

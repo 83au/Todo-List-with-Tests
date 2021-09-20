@@ -1,11 +1,11 @@
 import './Todo.css';
 
-function Todo({ children, todo: { completed, id }, dispatch }) {
+function Todo({ children, todo: { completed, id }, deleteTodo, updateTodo }) {
   const handleClick = event => {
     if (event.target.closest('.Todo__close')) {
-      dispatch({ type: 'DELETE', id });
+      deleteTodo(id)
     } else {
-      dispatch({ type: 'UPDATE', id })
+      updateTodo(id)
     }
   };
   return (
