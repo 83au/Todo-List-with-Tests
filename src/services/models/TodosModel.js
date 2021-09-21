@@ -1,6 +1,6 @@
 import { createContext, useContext } from 'react';
 import { v4 as uuid } from 'uuid';
-import * as actions from './actions/todosActions';
+import * as actions from '../models/actions/todosActions';
 import useLocalStorageTodos from '../../hooks/useLocalStorageTodos';
 
 
@@ -11,10 +11,10 @@ const initialTodos = [
 ];
 
 
-export const TodosContext = createContext();
+const TodosModelContext = createContext();
 
 
-function TodosProvider({ children }) {
+export function TodosModelProvider({ children }) {
   const [todos, dispatch] = useLocalStorageTodos(initialTodos);
 
   const addTodo = task => dispatch(actions.addTodo(task));
@@ -31,15 +31,13 @@ function TodosProvider({ children }) {
   }
 
   return (
-    <TodosContext.Provider value={context}>
+    <TodosModelContext.Provider value={context}>
       {children}
-    </TodosContext.Provider>
+    </TodosModelContext.Provider>
   )
 }
 
-export function useTodos() {
-  const context = useContext(TodosContext);
+export function useTodosModel() {
+  const context = useContext(TodosModelContext);
   return context;
 }
-
-export default TodosProvider;

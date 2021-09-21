@@ -1,5 +1,5 @@
 import { useReducer, useEffect } from 'react';
-import todosReducer from '../services/providers/reducers/todosReducer';
+import todosReducer from '../services/models/reducers/todosReducer';
 
 function useLocalStorageTodos(initialVal) {
   const [todos, dispatch] = useReducer(todosReducer, initialVal, () => {

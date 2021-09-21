@@ -1,12 +1,12 @@
 import { createContext, useContext, useEffect, useCallback } from 'react';
-import useToggle from '../../hooks/useToggle';
+import { useThemeModel } from '../models';
 
 
-export const ThemeContext = createContext();
+const ThemeViewModelContext = createContext();
 
 
-function ThemeProvider({ children }) {
-  const [isLightTheme, toggleTheme] = useToggle(true);
+export function ThemeViewModelProvider({ children }) {
+  const { isLightTheme, toggleTheme } = useThemeModel();
 
   const updateStyles = useCallback(() => {
     const themeStyles = {
@@ -30,15 +30,13 @@ function ThemeProvider({ children }) {
   }
   
   return (
-    <ThemeContext.Provider value={context}>
+    <ThemeViewModelContext.Provider value={context}>
       {children}
-    </ThemeContext.Provider>
+    </ThemeViewModelContext.Provider>
   )
 }
 
-export function useTheme() {
-  const context = useContext(ThemeContext);
+export function useThemeViewModel() {
+  const context = useContext(ThemeViewModelContext);
   return context;
 }
-
-export default ThemeProvider;

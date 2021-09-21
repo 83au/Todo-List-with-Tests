@@ -1,12 +1,9 @@
 import './Todo.css';
 
-function Todo({ children, todo: { completed, id }, deleteTodo, updateTodo }) {
+function Todo({ children, todo: { completed, id }, chooseAction }) {
   const handleClick = event => {
-    if (event.target.closest('.Todo__close')) {
-      deleteTodo(id)
-    } else {
-      updateTodo(id)
-    }
+    const isDelete = event.target.closest('.Todo__close');
+    chooseAction(isDelete, id);
   };
   return (
     <li className={`Todo ${completed ? 'completed' : ''}`} onClick={handleClick}>

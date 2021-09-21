@@ -1,10 +1,10 @@
 import { useState } from 'react';
-import { useTodos } from '../../services/providers/TodosProvider';
+import { useTodosViewModel } from '../../services/viewModels/TodosViewModel';
 import './AddTodoForm.css';
 
 function AddTodoForm() {
   const [task, setTask] = useState('');
-  const { addTodo } = useTodos();
+  const { addTodo } = useTodosViewModel();
 
   const handleChange = event => setTask(event.target.value);
 

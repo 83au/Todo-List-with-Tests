@@ -1,11 +1,9 @@
-import { useTodos } from '../../services/providers/TodosProvider';
+import { useTodosViewModel } from '../../services/viewModels/TodosViewModel';
 import Todo from './Todo/Todo';
 import './TodoList.css';
 
 function TodoList() {
-  const { todos, deleteTodo, updateTodo } = useTodos();
-
-  console.log('TODOS: ', todos)
+  const { todos, deleteTodo, updateTodo } = useTodosViewModel();
 
   const listItems = todos.map(todo => (
     <Todo 
