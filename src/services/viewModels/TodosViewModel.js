@@ -6,7 +6,7 @@ const TodosViewModelContext = createContext();
 
 
 function TodosViewModelProvider({ children }) {
-  const {todos, addTodo, deleteTodo, updateTodo} = useTodosModel();
+  const { todos, addTodo, deleteTodo, updateTodo } = useTodosModel();
 
   const chooseAction = (isDelete, id) => {
     if (isDelete) {

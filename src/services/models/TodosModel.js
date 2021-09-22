@@ -1,13 +1,14 @@
 import { createContext, useContext } from 'react';
 import { v4 as uuid } from 'uuid';
 import * as actions from '../models/actions/todosActions';
-import useLocalStorageTodos from '../../hooks/useLocalStorageTodos';
+import todosReducer from './reducers/todosReducer';
+import useLocalStorage from '../common/useLocalStorage';
 
 
 const initialTodos = [
-  { task: 'Mow lawn', completed: false, id: uuid() },
-  { task: 'Wash car', completed: false, id: uuid() },
-  { task: 'Study', completed: false, id: uuid() }
+  { task: 'Pay back loans', completed: false, id: uuid() },
+  { task: 'Delete browser history', completed: false, id: uuid() },
+  { task: 'Get rich', completed: false, id: uuid() }
 ];
 
 
@@ -15,12 +16,10 @@ const TodosModelContext = createContext();
 
 
 export function TodosModelProvider({ children }) {
-  const [todos, dispatch] = useLocalStorageTodos(initialTodos);
+  const [todos, dispatch] = useLocalStorage('todos', todosReducer, initialTodos);
 
   const addTodo = task => dispatch(actions.addTodo(task));
-
   const deleteTodo = id => dispatch(actions.deleteTodo(id));
-
   const updateTodo = id => dispatch(actions.updateTodo(id));
 
   const context = {
