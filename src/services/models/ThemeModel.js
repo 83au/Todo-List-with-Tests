@@ -1,10 +1,14 @@
 import { createContext, useContext } from 'react';
-import useToggle from '../../hooks/useToggle';
+import useLocalStorage from '../common/useLocalStorage';
+import themeReducer from './reducers/themeReducer';
 
 const ThemeModelContext = createContext();
 
+
 export function ThemeModelProvider({ children }) {
-  const [isLightTheme, toggleTheme] = useToggle(true);
+  const [isLightTheme, dispatch] = useLocalStorage('isLightTheme', themeReducer, true);
+
+  const toggleTheme = () => dispatch({ type: 'TOGGLE' });
 
   const context = {
     isLightTheme, 

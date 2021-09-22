@@ -4,7 +4,7 @@ function useLocalStorage(key, reducer, initialVal) {
   const [state, dispatch] = useReducer(reducer, initialVal, () => {
     try {
       const storedState = JSON.parse(localStorage.getItem(key));
-      if (!storedState) throw Error();
+      if (storedState == null) throw Error();
       return storedState;
     } catch(err) {
       const initialState = initialVal ?? [];
