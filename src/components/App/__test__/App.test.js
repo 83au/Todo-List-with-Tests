@@ -1,9 +1,14 @@
 import { render, screen } from '@testing-library/react';
+import { ServicesProvider }  from '../../../services/models';
 import App from '../App';
 
 describe('App', () => {
   beforeEach(() => {
-    render(<App />);
+    render(
+      <ServicesProvider>
+        <App />
+      </ServicesProvider>
+    );
   });
 
   it('should render "Todo List" text as a heading', () => {
