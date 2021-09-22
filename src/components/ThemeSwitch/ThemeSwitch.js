@@ -3,14 +3,15 @@ import { useThemeViewModel } from '../../services/viewModels/ThemeViewModel';
 import './ThemeSwitch.css';
 
 function ThemeSwitch() {
-  const { isLightTheme, toggleTheme } = useThemeViewModel();  
+  const { toggleTheme } = useThemeViewModel();  
   const [isChecked, setIsChecked] = useState(false);
   const checkboxRef = useRef();
 
   useEffect(() => {
     setIsChecked(checkboxRef.current.checked);
-  }, [isLightTheme]);
+  }, []);
 
+  const handleChange = () => setIsChecked(checkboxRef.current.checked);
   const handleThemeToggle = () => toggleTheme();
 
   return (
@@ -21,6 +22,7 @@ function ThemeSwitch() {
         className="ThemeSwitch__toggle" 
         type="checkbox" 
         onClick={handleThemeToggle} 
+        onChange={handleChange}
       />
     </label>
   )
