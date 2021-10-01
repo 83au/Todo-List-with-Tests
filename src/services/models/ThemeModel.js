@@ -1,19 +1,17 @@
 import { createContext, useContext } from 'react';
-import useLocalStorage from '../common/useLocalStorage';
-import themeReducer from './reducers/themeReducer';
+import { getStoredState, setStoredState } from './providers';
 
 
 const ThemeModelContext = createContext();
 
 
 export function ThemeModelProvider({ children }) {
-  const [isLightTheme, dispatch] = useLocalStorage('isLightTheme', themeReducer, true);
+  const getStoredTheme = () => getStoredState('isLightTheme');
+  const setStoredTheme = isLightTheme => setStoredState('isLightTheme', isLightTheme);
 
-  const toggleTheme = () => dispatch({ type: 'TOGGLE' });
-
-  const context = {
-    isLightTheme, 
-    toggleTheme
+  const context = { 
+    getStoredTheme,
+    setStoredTheme,
   }
 
   return (

@@ -1,13 +1,30 @@
-import { createContext, useContext, useEffect, useCallback } from 'react';
+import { 
+  createContext, 
+  useContext, 
+  useEffect, 
+  useCallback, 
+  useReducer 
+} from 'react';
 import { useThemeModel } from '../models';
+import themeReducer from './reducers/themeReducer';
 
 
 const ThemeViewModelContext = createContext();
 
 
 export function ThemeViewModelProvider({ children }) {
-  const { isLightTheme, toggleTheme } = useThemeModel();
-  const context = { toggleTheme };
+  const { getStoredTheme, setStoredTheme } = useThemeModel();
+  const [isLightTheme, dispatch] = useReducer(themeReducer, true, () => {
+    let initialTheme;
+    try {
+      initialTheme = getStoredTheme();
+    } catch (err) {
+      initialTheme = true;
+    }
+    return initialTheme;
+  });
+
+  const toggleTheme = () => dispatch({ type: 'TOGGLE' });
 
   const updateStyles = useCallback(() => {
     const themeStyles = {
@@ -23,7 +40,13 @@ export function ThemeViewModelProvider({ children }) {
     }
   }, [isLightTheme]);
 
+  useEffect(() => {
+    setStoredTheme(isLightTheme);
+  }, [isLightTheme, setStoredTheme]);
+
   useEffect(() => updateStyles(), [updateStyles]);
+
+  const context = { toggleTheme };
   
   return (
     <ThemeViewModelContext.Provider value={context}>
