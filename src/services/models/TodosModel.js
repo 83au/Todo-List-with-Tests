@@ -1,25 +1,17 @@
 import { createContext, useContext } from 'react';
-import { v4 as uuid } from 'uuid';
-import todosReducer from './reducers/todosReducer';
-import useLocalStorage from '../common/useLocalStorage';
-
-
-const initialTodos = [
-  { task: 'Pay back loans', completed: false, id: uuid() },
-  { task: 'Delete browser history', completed: false, id: uuid() },
-  { task: 'Get rich', completed: false, id: uuid() }
-];
+import { getStoredState, setStoredState } from './providers';
 
 
 const TodosModelContext = createContext();
 
 
 export function TodosModelProvider({ children }) {
-  const [todos, dispatch] = useLocalStorage('todos', todosReducer, initialTodos);
+  const getStoredTodos = () => getStoredState('todos');
+  const setStoredTodos = todos => setStoredState('todos', todos);
 
   const context = {
-    todos,
-    dispatch
+    getStoredTodos,
+    setStoredTodos
   }
 
   return (
