@@ -7,6 +7,7 @@ const ThemeViewModelContext = createContext();
 
 export function ThemeViewModelProvider({ children }) {
   const { isLightTheme, toggleTheme } = useThemeModel();
+  const context = { toggleTheme };
 
   const updateStyles = useCallback(() => {
     const themeStyles = {
@@ -23,11 +24,6 @@ export function ThemeViewModelProvider({ children }) {
   }, [isLightTheme]);
 
   useEffect(() => updateStyles(), [updateStyles]);
-
-  const context = {
-    isLightTheme,
-    toggleTheme
-  }
   
   return (
     <ThemeViewModelContext.Provider value={context}>

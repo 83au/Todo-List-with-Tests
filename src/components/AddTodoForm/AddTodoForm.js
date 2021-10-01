@@ -6,10 +6,10 @@ function AddTodoForm() {
   const [task, setTask] = useState('');
   const { addTodo } = useTodosViewModel();
 
-  const handleChange = event => setTask(event.target.value);
+  const handleChange = evt => setTask(evt.target.value);
 
-  const handleSubmit = event => {
-    event.preventDefault();
+  const handleSubmit = evt => {
+    evt.preventDefault();
     addTodo(task);
     setTask('');
   }

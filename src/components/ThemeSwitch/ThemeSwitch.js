@@ -3,7 +3,8 @@ import { useThemeViewModel } from '../../services/viewModels/ThemeViewModel';
 import './ThemeSwitch.css';
 
 function ThemeSwitch() {
-  const { toggleTheme } = useThemeViewModel();  
+  const { toggleTheme } = useThemeViewModel(); 
+
   const [isChecked, setIsChecked] = useState(false);
   const checkboxRef = useRef();
 
@@ -11,9 +12,11 @@ function ThemeSwitch() {
     setIsChecked(checkboxRef.current.checked);
   }, []);
 
-  const handleChange = () => setIsChecked(checkboxRef.current.checked);
-  const handleThemeToggle = () => toggleTheme();
-
+  const handleChange = () => {
+    setIsChecked(checkboxRef.current.checked);
+    toggleTheme();
+  }
+  
   return (
     <label className={`ThemeSwitch ${isChecked ? 'checked' : ''}`}>
       Toggle theme
@@ -21,7 +24,6 @@ function ThemeSwitch() {
         ref={checkboxRef} 
         className="ThemeSwitch__toggle" 
         type="checkbox" 
-        onClick={handleThemeToggle} 
         onChange={handleChange}
       />
     </label>

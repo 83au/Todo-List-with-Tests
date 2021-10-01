@@ -1,15 +1,15 @@
 .App {
-  padding: 2rem 1rem 1rem 1rem;
   background-color: var(--color-theme);
   border-radius: 20px;
   box-shadow: 4px 4px 10px var(--color-shadow-dark),
               -4px -4px 10px var(--color-shadow-light);
   min-width: 50rem;
+  padding: 2rem 1rem 1rem 1rem;
 }
 
 h1 {
-  margin-bottom: 1rem;
   font-size: 4rem;
+  margin-bottom: 1rem;
 }
 
 h1,
