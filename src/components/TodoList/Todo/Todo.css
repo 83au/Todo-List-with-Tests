@@ -3,10 +3,6 @@
   margin: 0 1rem;
   
   padding: 1.3rem 2rem;
-
-  /* border-radius: 3rem;
-  box-shadow: 2px 2px 6px var(--color-shadow-dark),
-              -2px -2px 6px var(--color-shadow-light); */
   
   cursor: pointer;
 
@@ -19,13 +15,11 @@
 }
 
 .Todo:hover {
-  /* box-shadow: inset 2px 2px 6px var(--color-shadow-dark),
-              inset -2px -2px 6px var(--color-shadow-light); */
   color: var(--color-primary);
   transition: .3s;
 }
 
-.Todo__close {
+.Todo__delete {
   position: absolute;
   right: 2rem;
 
@@ -44,7 +38,7 @@
   line-height: 3rem;
 }
 
-.Todo__close:hover {
+.Todo__delete:hover {
   box-shadow: 2px 2px 6px var(--color-shadow-dark),
               -2px -2px 6px var(--color-shadow-light);
   color: var(--color-primary);
