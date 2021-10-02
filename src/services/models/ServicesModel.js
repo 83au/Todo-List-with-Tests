@@ -1,19 +1,19 @@
-import { ThemeModelProvider } from './ThemeModel';
-import { ThemeViewModelProvider } from '../viewModels/ThemeViewModel';
-import { TodosModelProvider } from './TodosModel';
-import TodosViewModelProvider from '../viewModels/TodosViewModel';
+import { ThemeModel} from './ThemeModel';
+import { ThemeViewModel } from '../viewModels/ThemeViewModel';
+import { TodosModel } from './TodosModel';
+import TodosViewModel from '../viewModels/TodosViewModel';
 
 function ServicesMount(props) {
   return (
-    <ThemeModelProvider>
-      <ThemeViewModelProvider>
-        <TodosModelProvider>
-          <TodosViewModelProvider>
+    <ThemeModel>
+      <ThemeViewModel>
+        <TodosModel>
+          <TodosViewModel>
             <Services {...props} />
-          </TodosViewModelProvider>
-        </TodosModelProvider>
-      </ThemeViewModelProvider>
-    </ThemeModelProvider>
+          </TodosViewModel>
+        </TodosModel>
+      </ThemeViewModel>
+    </ThemeModel>
   )
 }
 

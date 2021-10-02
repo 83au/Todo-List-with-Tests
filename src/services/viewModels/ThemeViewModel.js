@@ -12,7 +12,7 @@ import themeReducer from './reducers/themeReducer';
 const ThemeViewModelContext = createContext();
 
 
-export function ThemeViewModelProvider({ children }) {
+export function ThemeViewModel({ children }) {
   const { getStoredTheme, setStoredTheme } = useThemeModel();
   const [isLightTheme, dispatch] = useReducer(themeReducer, true, () => {
     let initialTheme;

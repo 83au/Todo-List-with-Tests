@@ -1,28 +1,12 @@
-import { createContext, useContext, useReducer } from 'react';
+import { createContext, useContext, } from 'react';
 import { useTodosModel } from '../models';
-import todosReducer from './reducers/todosReducer';
-import * as actions from './actions/todosActions';
-import { useEffect } from 'react/cjs/react.development';
 
 
 const TodosViewModelContext = createContext();
 
 
-function TodosViewModelProvider({ children }) {
-  const { getStoredTodos, setStoredTodos } = useTodosModel();
-  const [todos, dispatch] = useReducer(todosReducer, [], () => {
-    let initialTodos;
-    try {
-      initialTodos = getStoredTodos();
-    } catch (err) {
-      initialTodos = [];
-    }
-    return initialTodos;
-  });
-
-  const addTodo = task => dispatch(actions.addTodo(task));
-  const deleteTodo = id => dispatch(actions.deleteTodo(id));
-  const updateTodo = id => dispatch(actions.updateTodo(id));
+function TodosViewModel({ children }) {
+  const { todos, addTodo, deleteTodo, updateTodo } = useTodosModel();
 
   const chooseAction = (isDelete, id) => {
     if (isDelete) {
@@ -31,10 +15,6 @@ function TodosViewModelProvider({ children }) {
       updateTodo(id);
     }
   }
-
-  useEffect(() => {
-    setStoredTodos(todos);
-  }, [todos, setStoredTodos]);
 
   const context = {
     todos, 
@@ -55,4 +35,4 @@ export function useTodosViewModel() {
   return context;
 }
 
-export default TodosViewModelProvider;
+export default TodosViewModel;

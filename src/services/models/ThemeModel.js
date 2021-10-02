@@ -1,11 +1,11 @@
 import { createContext, useContext } from 'react';
-import { getStoredState, setStoredState } from './providers';
+import { getStoredState, setStoredState } from './providers/localStorage';
 
 
 const ThemeModelContext = createContext();
 
 
-export function ThemeModelProvider({ children }) {
+export function ThemeModel({ children }) {
   const getStoredTheme = () => getStoredState('isLightTheme');
   const setStoredTheme = isLightTheme => setStoredState('isLightTheme', isLightTheme);
 
