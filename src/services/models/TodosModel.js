@@ -21,11 +21,18 @@ export function TodosModel({ children }) {
   const deleteTodo = id => dispatch(actions.deleteTodo(id));
   const updateTodo = id => dispatch(actions.updateTodo(id));
 
+  const chooseAction = (remove, id) => {
+    if (remove) {
+      deleteTodo(id);
+    } else {
+      updateTodo(id);
+    }
+  }
+
   const context = {
     todos,
     addTodo,
-    deleteTodo,
-    updateTodo
+    chooseAction
   }
 
   return (
