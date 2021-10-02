@@ -4,7 +4,6 @@ import './ThemeSwitch.css';
 
 function ThemeSwitch() {
   const { toggleTheme } = useThemeViewModel(); 
-
   const [isChecked, setIsChecked] = useState(false);
   const checkboxRef = useRef();
 
