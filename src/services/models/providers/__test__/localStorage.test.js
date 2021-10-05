@@ -11,9 +11,9 @@ const testReducer = (state, action) => {
 }
 
 describe('useLocalStorage', () => {
-  let result;
-  let state;
-  let dispatch;
+  let result,
+      state,
+      dispatch;
 
   beforeEach(() => {
     result = renderHook(() => useLocalStorage('test', testReducer, true)).result;

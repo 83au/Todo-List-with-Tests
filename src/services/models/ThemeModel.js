@@ -7,7 +7,7 @@ const ThemeModelContext = createContext();
 
 
 export function ThemeModel({ children }) {
-  const { isLightTheme, dispatch } = useLocalStorage('isLightTheme', themeReducer, true);
+  const [isLightTheme, dispatch] = useLocalStorage('isLightTheme', themeReducer, true);
 
   const toggleTheme = () => dispatch({ type: 'TOGGLE' });
 

@@ -3,14 +3,14 @@ import userEvent from '@testing-library/user-event';
 import { ServicesProvider }  from '../../../services/models';
 import App from '../App';
 
-const addTodos = (tasks) => {
+const addTodos = tasks => {
   const inputElement = screen.getByPlaceholderText(/some task/i);
   const submitButton = screen.getByText(/\+/); 
 
   tasks.forEach(task => {
     userEvent.type(inputElement, task);
     userEvent.click(submitButton);
-  })
+  });
 };
 
 describe('App', () => {
