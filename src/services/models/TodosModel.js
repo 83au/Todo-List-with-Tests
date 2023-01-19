@@ -1,7 +1,7 @@
 import { createContext, useContext } from 'react';
 import todosReducer from './reducers/todosReducer';
 import * as actions from './actions/todosActions';
-import { useLocalStorage } from './providers/localStorage';
+import { useLocalStorage } from '../../hooks/localStorage';
 
 
 const initialTodos = [

@@ -1,5 +1,5 @@
 import { createContext, useContext } from 'react';
-import { useLocalStorage } from './providers/localStorage';
+import { useLocalStorage } from '../../hooks/localStorage';
 import themeReducer from './reducers/themeReducer';
 
 

@@ -1,17 +1,14 @@
 import { useReducer, useEffect } from 'react';
 
-export const getStoredState = key => JSON.parse(localStorage.getItem(key))
-export const setStoredState = (key, value) => localStorage.setItem(key, JSON.stringify(value));
-
 export function useLocalStorage(key, reducer, initialVal) {
   const [state, dispatch] = useReducer(reducer, initialVal, () => {
     try {
-      const storedState = getStoredState(key);
+      const storedState = JSON.parse(localStorage.getItem(key));
       if (storedState == null) throw Error();
       return storedState;
     } catch (err) {
       const initialState = initialVal ?? [];
-      setStoredState(key, initialState);
+      localStorage.setItem(key, JSON.stringify(initialVal));
       return initialState;
     }
   });
@@ -22,3 +19,5 @@ export function useLocalStorage(key, reducer, initialVal) {
 
   return [state, dispatch];
 }
+
+
