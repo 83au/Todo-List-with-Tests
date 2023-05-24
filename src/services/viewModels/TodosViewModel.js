@@ -5,7 +5,7 @@ import { useTodosModel } from '../models';
 const TodosViewModelContext = createContext();
 
 
-function TodosViewModel({ children }) {
+export function TodosViewModel({ children }) {
   const { todos, addTodo, chooseAction } = useTodosModel();
 
   const context = {
@@ -27,4 +27,3 @@ export function useTodosViewModel() {
   return context;
 }
 
-export default TodosViewModel;

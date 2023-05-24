@@ -1,5 +1,5 @@
 import React from 'react';
-import { ServicesModel }  from './services/models';
+import { ServicesModel }  from '../services/models';
 import { ThemeViewModel } from '../services/viewModels/ThemeViewModel';
 import { TodosViewModel } from '../services/viewModels/TodosViewModel';
 
