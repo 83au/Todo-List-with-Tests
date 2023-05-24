@@ -1,13 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './components/App/App';
-import ServicesProvider from './components/ServicesProvider';
+import { ServicesModel } from './services/models';
+import { ServicesViewModel } from './services/views/ServicesViewModel';
 import './index.css';
 
 ReactDOM.render(
-  <ServicesProvider>
-    <App />
-  </ServicesProvider>,
+  <ServicesModel>
+    <ServicesViewModel>
+      <App />
+    </ServicesViewModel>
+  </ServicesModel>,
   document.getElementById('root')
 );
 
