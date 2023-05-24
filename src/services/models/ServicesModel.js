@@ -1,29 +1,13 @@
 import { ThemeModel} from './ThemeModel';
-import { ThemeViewModel } from '../viewModels/ThemeViewModel';
 import { TodosModel } from './TodosModel';
-import TodosViewModel from '../viewModels/TodosViewModel';
 
-function ServicesMount(props) {
+export function ServicesModel({ children }) {
   return (
     <ThemeModel>
-      <ThemeViewModel>
-        <TodosModel>
-          <TodosViewModel>
-            <Services {...props} />
-          </TodosViewModel>
-        </TodosModel>
-      </ThemeViewModel>
+      <TodosModel>
+        {children}
+      </TodosModel>
     </ThemeModel>
   )
 }
 
-function Services({ children }) {
-  return (
-    <>
-      {children}
-    </>
-  )
-}
-
-
-export default ServicesMount;

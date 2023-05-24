@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { ServicesProvider }  from './services/models';
 import App from './components/App/App';
+import ServicesProvider from './components/ServicesProvider';
 import './index.css';
 
 ReactDOM.render(
