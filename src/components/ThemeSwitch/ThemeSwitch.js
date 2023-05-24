@@ -11,7 +11,7 @@ function ThemeSwitch() {
     setIsChecked(checkboxRef.current.checked);
   }, []);
 
-  const handleChange = () => {
+  function handleChange() {
     setIsChecked(checkboxRef.current.checked);
     toggleTheme();
   }
