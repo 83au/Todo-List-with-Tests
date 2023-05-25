@@ -1,6 +1,6 @@
 import React from 'react';
-import { ThemeViewModel } from '../services/viewModels/ThemeViewModel';
-import { TodosViewModel } from '../services/viewModels/TodosViewModel';
+import { ThemeViewModel } from './ThemeViewModel';
+import { TodosViewModel } from './TodosViewModel';
 
 function ServicesViewModel({ children }) {
   return (
